@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enterprise SEO Proposal | AHÁMTVÁM MEDIA</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ==========================================================================
+           1. CORE VARIABLES & SETUP
+           ========================================================================== */
+        :root {
+            /* Strict Color Palette */
+            --bg-main: #000000;
+            --text-main: #FFFFFF;
+            --accent-primary: #FFA500;
+            --accent-secondary: #0A1543;
+            
+            /* RGB Values for Opacity/Gradients */
+            --rgb-primary: 255, 165, 0;
+            --rgb-secondary: 10, 21, 67;
+            --rgb-white: 255, 255, 255;
+            
+            /* Typography */
+            --font-main: 'Inter', sans-serif;
+            
+            /* Layout & Spacing */
+            --container-w: 1280px;
+            --section-pad: 140px;
+            
+            /* Transitions */
+            --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+            --transition-smooth: all 0.5s var(--ease-out);
+            --transition-fast: all 0.2s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            background-color: var(--bg-main);
+            color: var(--text-main);
+            font-family: var(--font-main);
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        /* Ambient Background Glows */
+        body::before {
+            content: '';
+            position: fixed;
+            top: -20vh; left: -10vw; width: 60vw; height: 60vh;
+            background: radial-gradient(circle, rgba(var(--rgb-secondary), 0.4) 0%, transparent 70%);
+            z-index: -1; pointer-events: none;
+        }
+        body::after {
+            content: '';
+            position: fixed;
+            bottom: -20vh; right: -10vw; width: 60vw; height: 60vh;
+            background: radial-gradient(circle, rgba(var(--rgb-primary), 0.05) 0%, transparent 70%);
+            z-index: -1; pointer-events: none;
+        }
+
+        a { text-decoration: none; color: inherit; }
+        ul { list-style: none; }
+        
+        .container {
+            max-width: var(--container-w);
+            margin: 0 auto;
+            padding: 0 5%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ==========================================================================
+           2. TYPOGRAPHY
+           ========================================================================== */
+        h1, h2, h3, h4, h5 {
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+        }
+
+        .text-orange { color: var(--accent-primary); }
+        
+        p {
+            font-size: 1.125rem;
+            line-height: 1.7;
+            color: rgba(var(--rgb-white), 0.7);
+            font-weight: 400;
+        }
+
+        .eyebrow {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            color: var(--accent-primary);
+            font-weight: 600;
+            margin-bottom: 1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .eyebrow::before {
+            content: '';
+            width: 8px; height: 8px;
+            background: var(--accent-primary);
+            border-radius: 50%;
+            box-shadow: 0 0 10px var(--accent-primary);
+        }
+
+        /* ==========================================================================
+           3. BUTTONS & COMPONENTS
+           ========================================================================== */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem 2rem;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 100px;
+            transition: var(--transition-smooth);
+            cursor: pointer;
+            gap: 0.75rem;
+            letter-spacing: -0.01em;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-primary);
+            color: var(--bg-main);
+            border: 1px solid var(--accent-primary);
+            box-shadow: 0 4px 20px rgba(var(--rgb-primary), 0.15);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 30px rgba(var(--rgb-primary), 0.3);
+            background-color: #ffb732; /* Slightly lighter orange for hover */
+        }
+
+        .btn-secondary {
+            background-color: transparent;
+            color: var(--text-main);
+            border: 1px solid rgba(var(--rgb-white), 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            background: rgba(var(--rgb-primary), 0.05);
+            transform: translateY(-2px);
+            color: var(--accent-primary);
+        }
+
+        /* Scroll Reveal Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: 1s var(--ease-out);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+
+        /* ==========================================================================
+           4. NAVIGATION
+           ========================================================================== */
+        .nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            padding: 1.5rem 0;
+            z-index: 1000;
+            transition: var(--transition-smooth);
+            border-bottom: 1px solid transparent;
+        }
+
+        .nav.scrolled {
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(var(--rgb-white), 0.05);
+            padding: 1rem 0;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .logo-img {
+            height: 36px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .logo-text {
+            font-weight: 800;
+            font-size: 1.25rem;
+            letter-spacing: -0.02em;
+        }
+        .logo-text span { color: var(--accent-primary); }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: rgba(var(--rgb-white), 0.7);
+            transition: var(--transition-fast);
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .nav-link:hover { color: var(--text-main); }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -6px; left: 0;
+            width: 0%; height: 2px;
+            background: var(--accent-primary);
+            transition: var(--transition-fast);
+        }
+        .nav-link:hover::after { width: 100%; }
+
+        /* ==========================================================================
+           5. HERO SECTION
+           ========================================================================== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 200px 0 100px;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 7vw, 6.5rem);
+            margin: 1.5rem 0 1rem;
+            line-height: 1.05;
+        }
+
+        .hero h2 {
+            font-size: clamp(1.25rem, 3vw, 2rem);
+            font-weight: 400;
+            color: rgba(var(--rgb-white), 0.7);
+            margin-bottom: 2rem;
+        }
+
+        .hero-desc {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+
+        .hero-cta {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        /* ==========================================================================
+           6. AUDIT SNAPSHOT (KPI CARDS)
+           ========================================================================== */
+        .section { padding: var(--section-pad) 0; }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .kpi-card {
+            background: linear-gradient(180deg, rgba(var(--rgb-secondary), 0.4) 0%, rgba(0,0,0,0) 100%);
+            border: 1px solid rgba(var(--rgb-secondary), 0.8);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+            text-align: center;
+        }
+
+        .kpi-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(var(--rgb-secondary), 0.5);
+            background: linear-gradient(180deg, rgba(var(--rgb-secondary), 0.6) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .kpi-value {
+            font-size: 4rem;
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            color: var(--text-main);
+            letter-spacing: -0.05em;
+        }
+
+        .kpi-label {
+            font-size: 1rem;
+            color: rgba(var(--rgb-white), 0.7);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* ==========================================================================
+           7. WHAT'S INCLUDED
+           ========================================================================== */
+        .included-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 4rem;
+        }
+
+        .included-card {
+            background: rgba(var(--rgb-white), 0.02);
+            border: 1px solid rgba(var(--rgb-white), 0.05);
+            border-radius: 24px;
+            padding: 4rem;
+            transition: var(--transition-smooth);
+        }
+
+        .included-card:hover {
+            border-color: rgba(var(--rgb-secondary), 0.8);
+            background: rgba(var(--rgb-secondary), 0.1);
+        }
+
+        .included-card h3 {
+            font-size: 2.5rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .included-card h3 svg {
+            color: var(--accent-primary);
+            width: 40px; height: 40px;
+        }
+
+        .included-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        .included-list li {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.125rem;
+            color: rgba(var(--rgb-white), 0.8);
+        }
+
+        .included-list li svg {
+            width: 20px; height: 20px;
+            fill: none;
+            stroke: var(--accent-primary);
+            stroke-width: 3;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+            flex-shrink: 0;
+        }
+
+        /* ==========================================================================
+           8. OUR METHODOLOGY (TIMELINE)
+           ========================================================================== */
+        .timeline-wrapper {
+            margin-top: 5rem;
+            position: relative;
+        }
+
+        .timeline {
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            top: 24px; left: 0; right: 0;
+            height: 2px;
+            background: rgba(var(--rgb-secondary), 0.8);
+            z-index: 1;
+        }
+
+        .timeline-step {
+            position: relative;
+            z-index: 2;
+            width: 15%;
+            text-align: center;
+        }
+
+        .timeline-icon {
+            width: 50px; height: 50px;
+            background: var(--bg-main);
+            border: 2px solid var(--accent-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 0 20px rgba(var(--rgb-primary), 0.2);
+            transition: var(--transition-smooth);
+        }
+
+        .timeline-step:hover .timeline-icon {
+            background: var(--accent-primary);
+            color: var(--bg-main);
+            transform: scale(1.1);
+        }
+
+        .timeline-step h4 {
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-step p {
+            font-size: 0.875rem;
+            color: rgba(var(--rgb-white), 0.6);
+        }
+
+        /* ==========================================================================
+           9. WHY AHÁMTVÁM MEDIA
+           ========================================================================== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .why-card {
+            padding: 3rem;
+            border-radius: 20px;
+            background: rgba(var(--rgb-white), 0.02);
+            border: 1px solid rgba(var(--rgb-white), 0.05);
+            transition: var(--transition-smooth);
+        }
+
+        .why-card:hover {
+            border-color: var(--accent-primary);
+            background: linear-gradient(135deg, rgba(var(--rgb-secondary), 0.4) 0%, transparent 100%);
+            transform: translateY(-5px);
+        }
+
+        .why-icon {
+            width: 48px; height: 48px;
+            margin-bottom: 1.5rem;
+            color: var(--accent-primary);
+        }
+
+        .why-card h4 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .why-card p {
+            font-size: 1rem;
+        }
+
+        /* ==========================================================================
+           10. CHOOSE YOUR AUDIT
+           ========================================================================== */
+        .choose-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-top: 4rem;
+        }
+
+        .choose-card {
+            background: linear-gradient(180deg, rgba(var(--rgb-secondary), 0.3) 0%, rgba(0,0,0,0) 100%);
+            border: 1px solid rgba(var(--rgb-secondary), 0.8);
+            border-radius: 32px;
+            padding: 5rem 4rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .choose-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-10px);
+            box-shadow: 0 30px 60px rgba(var(--rgb-secondary), 0.6);
+            background: linear-gradient(180deg, rgba(var(--rgb-secondary), 0.5) 0%, rgba(0,0,0,0) 100%);
+        }
+
+        .choose-card h3 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1;
+        }
+
+        .choose-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin: 2rem 0 4rem;
+        }
+
+        .choose-tags span {
+            padding: 0.5rem 1.25rem;
+            border-radius: 100px;
+            font-size: 0.875rem;
+            font-weight: 500;
+            background: rgba(var(--rgb-secondary), 0.5);
+            border: 1px solid rgba(var(--rgb-white), 0.1);
+            color: rgba(var(--rgb-white), 0.8);
+        }
+
+        /* ==========================================================================
+           11. DELIVERABLES
+           ========================================================================== */
+        .deliverables-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .del-card {
+            padding: 2rem;
+            background: transparent;
+            border: 1px solid rgba(var(--rgb-white), 0.1);
+            border-radius: 16px;
+            text-align: center;
+            transition: var(--transition-smooth);
+        }
+
+        .del-card:hover {
+            border-color: var(--accent-primary);
+            background: rgba(var(--rgb-primary), 0.05);
+            transform: translateY(-5px);
+        }
+
+        .del-card h5 {
+            font-size: 1.125rem;
+            font-weight: 600;
+        }
+
+        /* ==========================================================================
+           12. FINAL CTA
+           ========================================================================== */
+        .cta-section {
+            padding: 160px 0;
+            text-align: center;
+            position: relative;
+            background: radial-gradient(circle at 50% 50%, rgba(var(--rgb-secondary), 0.5) 0%, transparent 60%);
+            border-top: 1px solid rgba(var(--rgb-white), 0.05);
+        }
+
+        .cta-section h2 {
+            font-size: clamp(3rem, 5vw, 4.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            max-width: 600px;
+            margin: 0 auto 3rem;
+        }
+
+        /* ==========================================================================
+           13. FOOTER
+           ========================================================================== */
+        .footer {
+            border-top: 1px solid rgba(var(--rgb-white), 0.05);
+            padding: 5rem 0 2rem;
+            background: var(--bg-main);
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .footer-brand p {
+            margin-top: 1.5rem;
+            font-size: 1rem;
+            max-width: 300px;
+        }
+
+        .footer-col h4 {
+            font-size: 1.125rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+        }
+
+        .footer-col ul {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .footer-col a {
+            color: rgba(var(--rgb-white), 0.6);
+            transition: var(--transition-fast);
+        }
+
+        .footer-col a:hover {
+            color: var(--accent-primary);
+        }
+        
+        .footer-bottom {
+            padding-top: 2rem;
+            border-top: 1px solid rgba(var(--rgb-white), 0.05);
+            display: flex;
+            justify-content: space-between;
+            color: rgba(var(--rgb-white), 0.5);
+            font-size: 0.875rem;
+        }
+
+        /* ==========================================================================
+           14. RESPONSIVE DESIGN
+           ========================================================================== */
+        @media (max-width: 1024px) {
+            .kpi-grid, .deliverables-grid { grid-template-columns: repeat(2, 1fr); }
+            .why-grid { grid-template-columns: repeat(2, 1fr); }
+            .included-grid, .choose-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            
+            .timeline { flex-direction: column; gap: 2rem; }
+            .timeline::before {
+                top: 0; bottom: 0; left: 24px; right: auto;
+                width: 2px; height: 100%;
+            }
+            .timeline-step { width: 100%; display: flex; text-align: left; align-items: flex-start; gap: 2rem; }
+            .timeline-icon { margin: 0; flex-shrink: 0; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links, .nav-cta { display: none; }
+            .hero h1 { font-size: 2.5rem; }
+            .why-grid, .kpi-grid, .deliverables-grid, .included-list { grid-template-columns: 1fr; }
+            .included-card { padding: 2.5rem 1.5rem; }
+            .choose-card { padding: 3rem 2rem; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .footer-bottom { flex-direction: column; gap: 1rem; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="nav" id="navbar">
+        <div class="container nav-wrapper">
+            <a href="#" class="logo-container">
+                <img src="image_2583c8.png" alt="AHÁMTVÁM MEDIA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div class="logo-text" style="display: none;">AHÁMTVÁM<span>.</span></div>
+            </a>
+            
+            <nav class="nav-links">
+                <a href="#" class="nav-link">Home</a>
+                <a href="website-seo.html" class="nav-link">Website Audit</a>
+                <a href="social-seo.html" class="nav-link">Social Audit</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+
+            <div class="nav-cta">
+                <a href="#contact" class="btn btn-secondary" style="padding: 0.75rem 1.5rem; font-size: 0.875rem;">Get Proposal</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="reveal">
+                <div class="eyebrow">Enterprise Consulting</div>
+                <h1>SEO Audit &<br>Growth Strategy</h1>
+                <h2>Prepared Exclusively for <span class="text-orange">Score99Percentile</span></h2>
+            </div>
+            
+            <p class="hero-desc reveal delay-1">
+                A comprehensive Website SEO and Social SEO audit prepared by AHÁMTVÁM MEDIA to identify technical issues, improve search visibility, strengthen brand authority, and create a clear execution roadmap for long-term organic growth.
+            </p>
+            
+            <div class="hero-cta reveal delay-2">
+                <a href="website-seo.html" class="btn btn-primary">
+                    View Website Audit
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                </a>
+                <a href="social-seo.html" class="btn btn-secondary">
+                    View Social SEO Audit
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="kpi-grid">
+                <div class="kpi-card reveal">
+                    <div class="kpi-value"><span class="counter" data-target="78">0</span><span class="text-orange" style="font-size: 2.5rem;">/100</span></div>
+                    <div class="kpi-label">Website SEO Score</div>
+                </div>
+                <div class="kpi-card reveal delay-1">
+                    <div class="kpi-value"><span class="counter" data-target="82">0</span><span class="text-orange" style="font-size: 2.5rem;">/100</span></div>
+                    <div class="kpi-label">Social SEO Score</div>
+                </div>
+                <div class="kpi-card reveal delay-2">
+                    <div class="kpi-value counter" data-target="54">0</div>
+                    <div class="kpi-label">Critical Issues Found</div>
+                </div>
+                <div class="kpi-card reveal delay-3">
+                    <div class="kpi-value"><span class="counter" data-target="120">0</span><span class="text-orange">+</span></div>
+                    <div class="kpi-label">Optimization Opportunities</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <div class="eyebrow">Comprehensive Scope</div>
+                <h2 style="font-size: 3rem;">What's Included</h2>
+            </div>
+            
+            <div class="included-grid">
+                <div class="included-card reveal">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                        Website SEO
+                    </h3>
+                    <ul class="included-list">
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Technical SEO</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Core Web Vitals</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Performance</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Schema Markup</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Metadata</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Internal Linking</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Crawlability</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Indexability</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> On-page SEO</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Content Optimization</li>
+                    </ul>
+                </div>
+
+                <div class="included-card reveal delay-1">
+                    <h3>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+                        Social SEO
+                    </h3>
+                    <ul class="included-list">
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Instagram SEO</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Facebook SEO</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> LinkedIn SEO</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> YouTube SEO</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> X (Twitter)</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Open Graph</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Twitter Cards</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Metadata Analysis</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Brand Consistency</li>
+                        <li><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"></polyline></svg> Cross-platform Opt.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <div class="eyebrow">The Blueprint</div>
+                <h2 style="font-size: 3rem;">Our Methodology</h2>
+            </div>
+
+            <div class="timeline-wrapper reveal delay-1">
+                <div class="timeline">
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                        </div>
+                        <h4>1. Research</h4>
+                        <p>Deep-dive into market landscape, competitors, and target audience intent.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                        </div>
+                        <h4>2. Audit</h4>
+                        <p>Comprehensive technical and structural analysis across web and social assets.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline></svg>
+                        </div>
+                        <h4>3. Analysis</h4>
+                        <p>Data processing to uncover critical bottlenecks and ranking opportunities.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 16 16 12 12 8"></polyline><line x1="8" y1="12" x2="16" y2="12"></line></svg>
+                        </div>
+                        <h4>4. Strategy</h4>
+                        <p>Formulating a prioritized, executable roadmap tailored to exact business goals.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+                        </div>
+                        <h4>5. Implement</h4>
+                        <p>Executing technical fixes, content optimization, and authority building.</p>
+                    </div>
+                    <div class="timeline-step">
+                        <div class="timeline-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline><polyline points="17 6 23 6 23 12"></polyline></svg>
+                        </div>
+                        <h4>6. Growth</h4>
+                        <p>Continuous monitoring, algorithmic adaptation, and scaling organic traffic.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="reveal">
+                <div class="eyebrow">The Advantage</div>
+                <h2 style="font-size: 3rem;">Why AHÁMTVÁM MEDIA</h2>
+            </div>
+            
+            <div class="why-grid">
+                <div class="why-card reveal">
+                    <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                    <h4>Technical SEO Expertise</h4>
+                    <p>We resolve complex indexation, rendering, and Core Web Vitals issues at the codebase level.</p>
+                </div>
+                <div class="why-card reveal delay-1">
+                    <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+                    <h4>AI Search Optimization</h4>
+                    <p>Future-proofing your assets for Generative Engine Optimization (GEO) and Answer Engine experiences.</p>
+                </div>
+                <div class="why-card reveal delay-2">
+                    <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    <h4>Enterprise Reporting</h4>
+                    <p>Transparent, executive-level dashboards delivering clear attribution and ROI metrics.</p>
+                </div>
+                <div class="why-card reveal">
+                    <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                    <h4>Transparent Methodology</h4>
+                    <p>No black-box tactics. Every recommendation is documented, justified, and clearly communicated.</p>
+                </div>
+                <div class="why-card reveal delay-1">
+                    <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"></line><line x1="12" y1="20" x2="12" y2="4"></line><line x1="6" y1="20" x2="6" y2="14"></line></svg>
+                    <h4>Data-Driven Decisions</h4>
+                    <p>We rely on hard analytics, competitor gap analysis, and algorithmic data to inform strategy.</p>
+                </div>
+                <div class="why-card reveal delay-2">
+                    <svg class="why-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                    <h4>Long-Term Partnership</h4>
+                    <p>We operate as an extension of your growth team, dedicated to sustainable, compounding success.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <div class="eyebrow">Explore The Findings</div>
+                <h2 style="font-size: 3rem;">Choose Your Audit</h2>
+            </div>
+
+            <div class="choose-grid">
+                <div class="choose-card reveal">
+                    <h3>Website SEO</h3>
+                    <p style="font-size: 1.25rem;">Deep dive into the structural, technical, and content integrity of your primary domain.</p>
+                    
+                    <div class="choose-tags">
+                        <span>Technical Health</span>
+                        <span>Performance</span>
+                        <span>Core Web Vitals</span>
+                        <span>Content SEO</span>
+                        <span>Schema</span>
+                        <span>Internal Linking</span>
+                    </div>
+
+                    <a href="website-seo.html" class="btn btn-primary" style="margin-top: auto; padding: 1.25rem 2.5rem;">
+                        View Website Audit
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+
+                <div class="choose-card reveal delay-1">
+                    <h3>Social SEO</h3>
+                    <p style="font-size: 1.25rem;">Analysis of brand consistency, metadata, and algorithmic alignment across social channels.</p>
+                    
+                    <div class="choose-tags">
+                        <span>Instagram</span>
+                        <span>Facebook</span>
+                        <span>LinkedIn</span>
+                        <span>YouTube</span>
+                        <span>X (Twitter)</span>
+                        <span>Open Graph</span>
+                    </div>
+
+                    <a href="social-seo.html" class="btn btn-secondary" style="margin-top: auto; padding: 1.25rem 2.5rem; border-color: var(--accent-primary); color: var(--text-main);">
+                        View Social SEO Audit
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="reveal" style="text-align: center;">
+                <div class="eyebrow">The Assets</div>
+                <h2 style="font-size: 3rem;">Deliverables</h2>
+            </div>
+
+            <div class="deliverables-grid">
+                <div class="del-card reveal"><h5>Technical SEO Report</h5></div>
+                <div class="del-card reveal delay-1"><h5>Website Audit</h5></div>
+                <div class="del-card reveal delay-2"><h5>Social Audit</h5></div>
+                <div class="del-card reveal delay-3"><h5>Priority Matrix</h5></div>
+                <div class="del-card reveal"><h5>Implementation Roadmap</h5></div>
+                <div class="del-card reveal delay-1"><h5>Monthly SEO Strategy</h5></div>
+                <div class="del-card reveal delay-2"><h5>Performance Tracking</h5></div>
+                <div class="del-card reveal delay-3"><h5>Professional Documentation</h5></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section" id="contact">
+        <div class="container reveal">
+            <div class="eyebrow">Take Action</div>
+            <h2>Ready to Grow Your Organic Visibility?</h2>
+            <p style="font-size: 1.25rem;">Begin implementing this strategy and unlock sustainable search growth with AHÁMTVÁM MEDIA.</p>
+            
+            <div class="hero-cta">
+                <a href="mailto:director@ahamtvam.com" class="btn btn-primary" style="padding: 1.25rem 3rem; font-size: 1.125rem;">
+                    Start SEO Implementation
+                </a>
+                <a href="#" class="btn btn-secondary" style="padding: 1.25rem 3rem; font-size: 1.125rem;">
+                    Contact Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="#" class="logo-container" style="margin-bottom: 1rem;">
+                        <img src="image_2583c8.png" alt="AHÁMTVÁM MEDIA" class="logo-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                        <div class="logo-text" style="display: none;">AHÁMTVÁM<span>.</span></div>
+                    </a>
+                    <p>Elevating digital authority through technical precision, data science, and elite content strategy.</p>
+                </div>
+                
+                <div class="footer-col">
+                    <h4>Reports</h4>
+                    <ul>
+                        <li><a href="website-seo.html">Website SEO Audit</a></li>
+                        <li><a href="social-seo.html">Social SEO Audit</a></li>
+                        <li><a href="#">Implementation Plan</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="#">Why Us</a></li>
+                        <li><a href="#">Methodology</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Connect</h4>
+                    <ul>
+                        <li><a href="mailto:director@ahamtvam.com">director@ahamtvam.com</a></li>
+                        <li><a href="#">LinkedIn</a></li>
+                        <li><a href="#">Twitter</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div>&copy; 2026 AHÁMTVÁM WORLD PRIVATE LIMITED. All rights reserved.</div>
+                <div>Authorized by the Director.</div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Navbar scroll effect
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            });
+
+            // Scroll Reveal Animation via Intersection Observer
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.15
+            };
+
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        
+                        // Trigger counter animation if it has counters
+                        const counters = entry.target.querySelectorAll('.counter');
+                        if (counters.length > 0) {
+                            counters.forEach(counter => animateCounter(counter));
+                        }
+                        
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal').forEach((el) => {
+                observer.observe(el);
+            });
+
+            // Initial trigger for elements already in viewport
+            setTimeout(() => {
+                document.querySelectorAll('.hero .reveal').forEach(el => el.classList.add('active'));
+            }, 100);
+
+            // Counter Animation Logic
+            function animateCounter(counter) {
+                const target = +counter.getAttribute('data-target');
+                const duration = 2000; // ms
+                const start = performance.now();
+                
+                function update(currentTime) {
+                    const elapsed = currentTime - start;
+                    const progress = Math.min(elapsed / duration, 1);
+                    
+                    // Ease out quart
+                    const easeProgress = 1 - Math.pow(1 - progress, 4);
+                    const current = Math.floor(easeProgress * target);
+                    
+                    counter.innerText = current;
+                    
+                    if (progress < 1) {
+                        requestAnimationFrame(update);
+                    } else {
+                        counter.innerText = target;
+                    }
+                }
+                requestAnimationFrame(update);
+            }
+        });
+    </script>
+</body>
+</html>
