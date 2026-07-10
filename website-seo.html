@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website SEO Audit | Score99Percentile | AHÁMTVÁM MEDIA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-black: #000000;
+            --bg-elevated: #050505;
+            --accent-orange: #FFA500;
+            --accent-blue: #0A1543;
+            --text-white: #FFFFFF;
+            --text-muted: #8A93A6;
+            --border: rgba(255,255,255,0.1);
+            --radius: 20px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; background: var(--bg-black); color: var(--text-white); line-height: 1.6; }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 2rem; }
+        
+        /* Components */
+        .btn { padding: 1rem 2rem; border-radius: 50px; font-weight: 600; cursor: pointer; display: inline-block; transition: 0.3s; }
+        .btn-primary { background: var(--accent-orange); color: var(--bg-black); }
+        .card { background: var(--bg-elevated); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; }
+        
+        /* Hero */
+        .hero { padding: 120px 0; text-align: center; }
+        .hero h1 { font-size: 4rem; margin-bottom: 1rem; }
+        
+        /* Dashboard Grid */
+        .dashboard { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-bottom: 2rem; }
+        .metric-card { text-align: center; padding: 2rem; background: linear-gradient(180deg, var(--accent-blue) 0%, var(--bg-black) 100%); border-radius: var(--radius); border: 1px solid var(--border); }
+        .metric-val { font-size: 3rem; font-weight: 800; display: block; color: var(--accent-orange); }
+        
+        /* Issues List */
+        .issue-item { padding: 1.5rem; border-bottom: 1px solid var(--border); display: flex; justify-content: space-between; align-items: center; }
+        .badge { padding: 0.25rem 0.75rem; border-radius: 4px; font-size: 0.8rem; font-weight: 700; }
+        .badge-critical { background: #551111; color: #ff6666; }
+        
+        /* Roadmap */
+        .roadmap { position: relative; padding-left: 2rem; border-left: 2px solid var(--accent-blue); }
+        .roadmap-item { margin-bottom: 2rem; position: relative; }
+        .roadmap-item::before { content: ''; position: absolute; left: -2.6rem; top: 0; width: 15px; height: 15px; border-radius: 50%; background: var(--accent-orange); }
+        
+        footer { padding: 4rem 0; text-align: center; border-top: 1px solid var(--border); margin-top: 4rem; color: var(--text-muted); }
+    </style>
+</head>
+<body>
+
+    <section class="hero">
+        <div class="container">
+            <div class="eyebrow" style="color: var(--accent-orange);">Technical Audit Report</div>
+            <h1>Website SEO Audit</h1>
+            <p>Prepared for Score99Percentile. A technical forensic analysis of your domain health.</p>
+            <div style="margin-top: 2rem;">
+                <a href="#" class="btn btn-primary">Download PDF Report</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Dashboard -->
+        <div class="dashboard">
+            <div class="metric-card"><span class="metric-val">78%</span>Site Health</div>
+            <div class="metric-card"><span class="metric-val">54</span>Critical Errors</div>
+            <div class="metric-card"><span class="metric-val">3.8k</span>Warnings</div>
+            <div class="metric-card"><span class="metric-val">100</span>Pages</div>
+        </div>
+
+        <!-- Executive Summary -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h2>Executive Summary</h2>
+            <p style="margin-top: 1rem;">The audit reveals critical structural weaknesses. While crawlability is high, performance metrics and on-page metadata hygiene require urgent attention to compete for high-intent keywords.</p>
+        </div>
+
+        <!-- Critical Issues -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h2>Critical Issues (Priority 1)</h2>
+            <div class="issue-item">
+                <div>
+                    <strong>4xx/5xx Server Errors</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Pages failing to load are bleeding link equity.</p>
+                </div>
+                <span class="badge badge-critical">CRITICAL</span>
+            </div>
+            <div class="issue-item">
+                <div>
+                    <strong>Missing Meta Descriptions</strong>
+                    <p style="font-size: 0.9rem; color: var(--text-muted);">Poor CTR optimization across main category pages.</p>
+                </div>
+                <span class="badge badge-critical">CRITICAL</span>
+            </div>
+        </div>
+
+        <!-- AI Readiness -->
+        <div class="card" style="margin-bottom: 2rem;">
+            <h2>AI & Generative Search Optimization</h2>
+            <p>Your current schema markup is insufficient for SGE (Search Generative Experience). We recommend immediate implementation of Organization and FAQ schemas.</p>
+        </div>
+
+        <!-- Roadmap -->
+        <div class="card">
+            <h2>Implementation Roadmap</h2>
+            <div class="roadmap" style="margin-top: 2rem;">
+                <div class="roadmap-item"><h4>Week 1: Technical Fixes</h4><p>Correct server errors and robots.txt configurations.</p></div>
+                <div class="roadmap-item"><h4>Week 2: On-Page Optimization</h4><p>Normalize Title Tags and Meta Descriptions.</p></div>
+                <div class="roadmap-item"><h4>Week 3: Performance Tuning</h4><p>Optimize Core Web Vitals and asset delivery.</p></div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 AHÁMTVÁM WORLD PRIVATE LIMITED. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Simple Intersection Observer for scroll reveal
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) entry.target.style.opacity = 1;
+            });
+        });
+        document.querySelectorAll('.card, .metric-card').forEach(el => {
+            el.style.opacity = 0;
+            el.style.transition = '1s';
+            observer.observe(el);
+        });
+    </script>
+</body>
+</html>
